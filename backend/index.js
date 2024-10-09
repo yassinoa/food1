@@ -19,7 +19,20 @@ app.use('/images', express.static('public/images'))
 app.use('/auth',authController)
 app.use('/product', productController)
 app.use('/upload', uploadController)
-
+app.post('/test', (req, res) => {
+ res.status(200).json({
+"id": 1,
+"currency": "USD",
+"taxAmountCents": 0,
+"taxType": null,
+"totalPriceAmountCents": 100,
+"basePriceAmountCents": 100,
+"discountCents": 0,
+"nextBillTotalPriceAmountCents": 100,
+"renewalInterval": "month",
+"freeTrialDays": null
+});
+});
 if (process.env.NODE_ENV === 'production') {
   console.log("hi")
   app.use(express.static(path.join(path.resolve(), '../frontend/build')));
